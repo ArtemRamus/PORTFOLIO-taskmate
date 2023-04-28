@@ -3,4 +3,4 @@ from django.http import HttpResponse
 
 # Create your views here.
 def todolist(request):
-    return HttpResponse("Welcome To Task Page")
+    return render(request, 'todolist.html', {})
