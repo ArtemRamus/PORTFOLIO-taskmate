@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html lang="en">
   <head>
@@ -7,30 +8,23 @@
 
     {% block title %}
     {% endblock title %}
-
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid">
-        <ul class="nav">
-          <li class="nav-brand">
-            <a class="nav-link active" href="#">Task Mate</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'todolist' %}">Todolist</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'about' %}">About Us</a>
-          </li>
-        </ul>
+    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#"><img src="{% static 'images/logo.png' %}" alt="Taskmate"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+        <a class="nav-item nav-link" href="{% url 'todolist' %}">Home</a>
+        <a class="nav-item nav-link" href="{% url 'todolist' %}">Todolist</a>
+        <a class="nav-item nav-link" href="{% url 'contact' %}">Contact Us</a>
+        <a class="nav-item nav-link" href="{% url 'about' %}">About Us</a>
+        </div>
       </div>
     </nav>
 
-</head>
+  </head>
   <body>
     
     {% block content %}
