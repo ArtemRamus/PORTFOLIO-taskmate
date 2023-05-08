@@ -15,7 +15,7 @@ def todolist(request):
         return redirect('todolist')
     else:
         all_tasks = TaskList.objects.all()
-        paginator = Paginator(all_tasks, 5)
+        paginator = Paginator(all_tasks, 10)
         page = request.GET.get('pg')
         all_tasks = paginator.get_page(page)
         return render(request, 'todolist.html', {'all_tasks': all_tasks})
@@ -49,6 +49,12 @@ def pending_task(request, task_id):
     task.done = False
     task.save()
     return redirect('todolist')
+
+def index(request):
+    context = {
+        'index_text': 'Welcome to Index Page',
+        }
+    return render(request, 'index.html', context)
 
 def contact(request):
     context = {
