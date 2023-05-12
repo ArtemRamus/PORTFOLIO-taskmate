@@ -26,7 +26,10 @@ def todolist(request):
 @login_required
 def delete_task(request, task_id):
     task = TaskList.objects.get(pk=task_id)
-    task.delete()
+    if task.owner == request.user:
+        task.delete()
+    else:
+        messages.error(request, ("Access Denied."))
     return redirect('todolist')
 
 @login_required
@@ -34,10 +37,12 @@ def edit_task(request, task_id):
     if request.method == "POST":
         task = TaskList.objects.get(pk=task_id)
         form = TaskForm(request.POST or None, instance=task)
-        if form.is_valid():
-            form.save()
-            
-        messages.success(request, ("Task Edited"))
+        if task.owner == request.user:
+            if form.is_valid():   
+                form.save()   
+            messages.success(request, ("Task Edited"))
+        else:
+            messages.error(request, ("Access Denied."))
         return redirect('todolist')
     else:
         task_obj = TaskList.objects.get(pk=task_id)
@@ -46,15 +51,21 @@ def edit_task(request, task_id):
 @login_required
 def complete_task(request, task_id):
     task = TaskList.objects.get(pk=task_id)
-    task.done = True
-    task.save()
+    if task.owner == request.user:
+        task.done = True
+        task.save()
+    else:
+        messages.error(request, ("Access Denied."))
     return redirect('todolist')
 
 @login_required
 def pending_task(request, task_id):
     task = TaskList.objects.get(pk=task_id)
-    task.done = False
-    task.save()
+    if task.owner == request.user:
+        task.done = False
+        task.save()
+    else:
+        messages.error(request, ("Access Denied."))
     return redirect('todolist')
 
 def index(request):
