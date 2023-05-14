@@ -8,21 +8,13 @@
 {% block content %}
     <div class="container">
         <div class="row mt-5">
-            <div class="col-lg-4">
-                <img src="{% static 'images/stickynotes.jpg' %}" alt="Notes" class="rounded-lg shadow-sm" width="360" height="250">
-            </div>
-            <div class="col-lg-4">
-                <img src="{% static 'images/stickynotes-1.jpg' %}" alt="Notes" class="rounded-lg shadow-sm" width="360" height="250">
-            </div>
-            <div class="col-lg-4">
-                <img src="{% static 'images/stickynotes-2.jpg' %}" alt="Notes" class="rounded-lg shadow-sm" width="360" height="250">
-            </div>
+            <img src="{% static 'images/home-image.jpg' %}" alt="Notes"
+            style="display: block; margin-right: auto; margin-left: auto; width: 100%; height: auto;"
+            class="rounded-lg shadow-sm">
         </div>
         <div class="row mt-5">
             <div class="col-md-10 offset-md-1">
-                <center><p class="h2 text-primary">Plan your day!</p></center>
-                <center><p class="h5 mg-3">TaskMate lets you keep track of your tasks anytime and anywhere.</p></center>
-
+                <center><p class="h3 text-primary">Plan your day with TaskMate</p></center>
                 <center><a href="{% url 'todolist' %}"><button type="button" class="btn btn-primary btn-lg mt-3 shadow">Start TaskMate</button></a></center>
             </div>
         </div>
