@@ -15,6 +15,9 @@
     {% endblock title %}
     
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
       <a class="navbar-brand" href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" alt="Taskmate"></a>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
@@ -25,23 +28,20 @@
         </div>
       </div>
       {% if user.is_authenticated %}
-        <div class="form-inline my-2 my-lg-0">
-          <div class="p-2 bg-dark text-white">Logged in as {{ user.username }}</div>
-          <a href="{% url 'logout' %}">
-            <button class="btn btn-info my-2 my-sm-0" type="submit">Logout</button>
+          <div class="form-inline my-2 my-lg-0">
+            <div class="p-2 bg-dark text-white">{{ user.username }}</div>
+            <a href="{% url 'logout' %}">
+              <button class="btn btn-info my-2 my-sm-0" type="submit">Logout</button>
+            </a>
+          </div>
+        {% else %}
+          <a href="{% url 'login' %}">
+            <button class="btn btn-info mr-2 my-2 my-sm-0" type="submit">Login</button>
           </a>
-        </div>
-      {% else %}
-        <a href="{% url 'login' %}">
-          <button class="btn btn-info mr-2 my-2 my-sm-0" type="submit">Login</button>
-        </a>
-        <a href="{% url 'register' %}">
-          <button class="btn btn-info my-2 my-sm-0" type="submit">Register</button>
-        </a>
-      {% endif %}
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+          <a href="{% url 'register' %}">
+            <button class="btn btn-info my-2 my-sm-0" type="submit">Register</button>
+          </a>
+        {% endif %}
     </nav>
 
   </head>
