@@ -77,7 +77,7 @@ def index(request):
 def contact(request):
     context = {
         'contact_header': 'Welcome to Contact Page',
-        'contact_text': 'Our email: artem.ramus@gmail.com',
+        'contact_text': 'artem.ramus@gmail.com',
         }
     return render(request, 'contact.html', context)
 
