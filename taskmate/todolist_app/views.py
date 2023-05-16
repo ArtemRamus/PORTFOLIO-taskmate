@@ -76,12 +76,14 @@ def index(request):
 
 def contact(request):
     context = {
-        'contact_text': 'Welcome to Contact Page',
+        'contact_header': 'Welcome to Contact Page',
+        'contact_text': 'Our email: artem.ramus@gmail.com',
         }
     return render(request, 'contact.html', context)
 
 def about(request):
     context = {
-        'about_text': 'Welcome to About Page',
+        'about_header': 'Welcome to About Page',
+        'about_text': 'Manage your tasks with TaskMate',
         }
     return render(request, 'about.html', context)
