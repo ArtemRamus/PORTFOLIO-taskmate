@@ -21,10 +21,10 @@
       <a class="navbar-brand" href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" alt="Taskmate"></a>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-        <a class="nav-item nav-link" href="{% url 'index' %}">Home</a>
-        <a class="nav-item nav-link" href="{% url 'todolist' %}">Todolist</a>
-        <a class="nav-item nav-link" href="{% url 'contact' %}">Contact Us</a>
-        <a class="nav-item nav-link" href="{% url 'about' %}">About Us</a>
+        <a class="nav-item nav-link text-white" href="{% url 'index' %}">Home</a>
+        <a class="nav-item nav-link text-white" href="{% url 'todolist' %}">Todolist</a>
+        <a class="nav-item nav-link text-white" href="{% url 'contact' %}">Contact Us</a>
+        <a class="nav-item nav-link text-white" href="{% url 'about' %}">About Us</a>
         </div>
       </div>
       {% if user.is_authenticated %}
