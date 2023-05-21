@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
 from todolist_app.models import TaskList
 from todolist_app.forms import TaskForm
 from django.contrib import messages
@@ -13,8 +12,11 @@ def todolist(request):
         if form.is_valid():
             instance = form.save(commit=False)
             instance.owner = request.user
-            instance.save()
-            messages.success(request, ("New Task Added"))
+            if  TaskList.objects.filter(task=instance.task, owner=instance.owner).exists():
+                messages.info(request, ("New Task Not Added, Already Exists"))
+            else:
+                instance.save()
+                messages.success(request, ("New Task Added"))
         return redirect('todolist')
     else:
         all_tasks = TaskList.objects.filter(owner=request.user)
