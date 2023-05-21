@@ -14,7 +14,7 @@ def todolist(request):
             instance = form.save(commit=False)
             instance.owner = request.user
             instance.save()
-        messages.success(request, ("New Task Added"))
+            messages.success(request, ("New Task Added"))
         return redirect('todolist')
     else:
         all_tasks = TaskList.objects.filter(owner=request.user)
