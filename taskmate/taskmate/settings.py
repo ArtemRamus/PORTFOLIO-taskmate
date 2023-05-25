@@ -27,9 +27,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = env("DJANGO_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env("DJANGO_DEBUG")
+# DEBUG = env("DJANGO_DEBUG")
+DEBUG = (bool(int(os.environ.get('DJANGO_DEBUG', 1))))
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", "portfolio-taskmate.up.railway.app",]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1",
+                 "portfolio-taskmate.up.railway.app",]
 CSRF_TRUSTED_ORIGINS = ["https://portfolio-taskmate.up.railway.app"]
 
 
@@ -142,7 +144,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [(os.path.join(BASE_DIR, 'static'))]
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
-CRISPY_ALLOWED_TEMPLATE_PACKS  = 'bootstrap5'
+CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
 LOGIN_REDIRECT_URL = "todolist"
