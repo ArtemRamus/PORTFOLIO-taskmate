@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required
 
+
 @login_required
 def todolist(request):
     if request.method == "POST":
@@ -12,7 +13,7 @@ def todolist(request):
         if form.is_valid():
             instance = form.save(commit=False)
             instance.owner = request.user
-            if  TaskList.objects.filter(task=instance.task, owner=instance.owner).exists():
+            if TaskList.objects.filter(task=instance.task, owner=instance.owner).exists():
                 messages.info(request, ("New Task Not Added, Already Exists"))
             else:
                 instance.save()
@@ -25,14 +26,17 @@ def todolist(request):
         all_tasks = paginator.get_page(page)
         return render(request, 'todolist.html', {'all_tasks': all_tasks})
 
+
 @login_required
 def delete_task(request, task_id):
     task = TaskList.objects.get(pk=task_id)
     if task.owner == request.user:
         task.delete()
+        messages.success(request, (f'Task "{task.task}" Deleted'))
     else:
         messages.error(request, ("Access Denied."))
     return redirect('todolist')
+
 
 @login_required
 def edit_task(request, task_id):
@@ -40,15 +44,16 @@ def edit_task(request, task_id):
         task = TaskList.objects.get(pk=task_id)
         form = TaskForm(request.POST or None, instance=task)
         if task.owner == request.user:
-            if form.is_valid():   
-                form.save()   
-            messages.success(request, ("Task Edited"))
+            if form.is_valid():
+                form.save()
+            messages.success(request, (f'Task "{task.task}" Edited'))
         else:
             messages.error(request, ("Access Denied."))
         return redirect('todolist')
     else:
         task_obj = TaskList.objects.get(pk=task_id)
         return render(request, 'edit.html', {'task_obj': task_obj})
+
 
 @login_required
 def complete_task(request, task_id):
@@ -60,6 +65,7 @@ def complete_task(request, task_id):
         messages.error(request, ("Access Denied."))
     return redirect('todolist')
 
+
 @login_required
 def pending_task(request, task_id):
     task = TaskList.objects.get(pk=task_id)
@@ -70,23 +76,26 @@ def pending_task(request, task_id):
         messages.error(request, ("Access Denied."))
     return redirect('todolist')
 
+
 def index(request):
     context = {
         'index_text': 'Welcome to Index Page',
-        }
+    }
     return render(request, 'index.html', context)
+
 
 def contact(request):
     context = {
         'contact_header': 'Welcome to Contact Page',
         'contact_text': "You can reach me at ",
         'contact_email': 'artem.ramus@gmail.com',
-        }
+    }
     return render(request, 'contact.html', context)
+
 
 def about(request):
     context = {
         'about_header': 'Welcome to About Page',
         'about_text': 'Artem Ramus, Data Scientist and Backend Developer',
-        }
+    }
     return render(request, 'about.html', context)
