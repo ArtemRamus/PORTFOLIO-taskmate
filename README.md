@@ -4,7 +4,7 @@ https://portfolio-taskmate.up.railway.app/
 
 # Taskmate
 
-Taskmate is a task manager web application build using Django Framework. The aim of this project was to understand the working of Django Framework along with it's common features like MVT architecture, working with forms, default authentication, .env files and the deployment process on Railway platform along with PostgreSQL database.
+Taskmate is a task manager web application build using Django Framework. The aim of this project is to understand the working of Django Framework along with it's common features like MVT architecture, working with forms, default authentication, .env files and the deployment process on Railway platform along with PostgreSQL database.
 
 
 ## Screenshots
@@ -21,9 +21,10 @@ Taskmate is a task manager web application build using Django Framework. The aim
 
 Deployed on Railway - https://taskmate.up.railway.app/
 
-Username: demo  
-Password: LearnDjango@72
+Username: demo_user  
+Password: use_django!
 
+Note: unfortunately, Railway deployment is available only 21 days a month. I you want to see the site and it in't available, please contact me by email artem.ramus@gmail.com.
   
 ## Documentation
 
