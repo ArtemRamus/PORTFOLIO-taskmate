@@ -1,7 +1,7 @@
 ﻿# PORTFOLIO-taskmate
 https://portfolio-taskmate.up.railway.app/
 
-Note: unfortunately, Railway deployment is available only 21 days a month. I you want to see the site and it in't available, please contact me by email artem.ramus@gmail.com.
+Note: unfortunately, Railway deployment is available only 21 days a month. If you want to see the site and it in't available, please contact me by email artem.ramus@gmail.com.
 
 # Taskmate
 
@@ -25,7 +25,7 @@ Deployed on Railway - https://taskmate.up.railway.app/
 Username: demo_user  
 Password: use_django!
 
-Note: unfortunately, Railway deployment is available only 21 days a month. I you want to see the site and it in't available, please contact me by email artem.ramus@gmail.com.
+Note: unfortunately, Railway deployment is available only 21 days a month. If you want to see the site and it in't available, please contact me by email artem.ramus@gmail.com.
   
 ## Documentation
 
