@@ -10,13 +10,13 @@ Taskmate is a task manager web application build using Django Framework. The aim
 
 ## Screenshots
 
-![App Screenshot](https://github.com/ArtemRamus/PORTFOLIO-taskmate/tree/main/screenshots/home.jpg)
+<img src="https://github.com/ArtemRamus/PORTFOLIO-taskmate/tree/main/screenshots/home.jpg">
 
-![App Screenshot](https://github.com/ArtemRamus/PORTFOLIO-taskmate/tree/main/screenshots/login.jpg)
+<img src="https://github.com/ArtemRamus/PORTFOLIO-taskmate/tree/main/screenshots/login.jpg">
 
-![App Screenshot](https://github.com/ArtemRamus/PORTFOLIO-taskmate/tree/main/screenshots/registe.jpg)
+<img src="https://github.com/ArtemRamus/PORTFOLIO-taskmate/tree/main/screenshots/registe.jpg">
 
-![App Screenshot](https://github.com/ArtemRamus/PORTFOLIO-taskmate/tree/main/screenshots/todolist.jpg)
+<img src="https://github.com/ArtemRamus/PORTFOLIO-taskmate/tree/main/screenshots/todolist.jpg">
 
 ## Demo
 
